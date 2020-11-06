@@ -91,4 +91,37 @@
 </div>
 </body>
 
-</html>
+<script>
+    $(document).ready(function () {
+
+                // jQuery methods go here...
+
+                // http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID={APIKEY}
+                // My Key
+                //6460a56cd2b961533a3268dd17a7fcd3
+                // jQuery methods go here...
+
+                // http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID={APIKEY}
+                // My Key
+                //6460a56cd2b961533a3268dd17a7fcd3
+                // api.openweathermap.org/data/2.5/weather?q=London
+
+                searchInput = $(".search");
+
+                var apiKey = "6460a56cd2b961533a3268dd17a7fcd3";
+                console.log(apiKey);
+                console.log(searchInput);
+
+                var url = "http://api.openweathermap.org/data/2.5/weather?q=London&Appid=" + apiKey;
+
+
+
+                $.ajax({
+                    url: url,
+                    method: "GET"
+                }).then(function (response) {
+                    console.log(response);
+
+                });
+</script>
+</body>

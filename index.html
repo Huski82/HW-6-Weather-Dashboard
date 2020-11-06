@@ -8,45 +8,87 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/styles.css">
     <script src="https://kit.fontawesome.com/d3bce829f3.js" crossorigin="anonymous"></script>
     <!-- Christian Suchoski's HW-6 Weather Dashboard -->
     <!-- This is the title-->
     <title>Weather Dashboard</title>
-    <link rel="stylesheet" href="assets/styles.css">
+
 </head>
 <!-- Start HTML Body -->
 
-<body>
-    <div class="container-fluid">
-        <div class="card">
-            <div class="card-body text-center bg-dark text-white">
-                <h1>Weather Dashboard</h1>
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-body text-center bg-dark text-white">
+            <h1>Weather Dashboard</h1>
+        </div>
+    </div>
+
+
+    <!-- <div class="card bg-primary"> -->
+    <div class="card-body text-center">
+
+
+        <div class="card" style="width: 18rem;">
+            <div class="card-body bg-light">
+                <h6 class="card-subtitle mb-2 text-muted">Search For A City</h6>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Recipient's username"
+                        aria-label="Recipient's username" aria-describedby="button-addon2">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary bg-primary" type="button" id="button-addon2"><i
+                                class="fas fa-search"></i></button>
+                    </div>
+                </div>
+
+                <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                            card's content.</p> -->
+                <form>
+                    <input type="text" class="mb-1 pl-5"><br>
+                    <input type="text" class="mb-1 pl-5"><br>
+                    <input type="text" class="mb-1 pl-5"><br>
+                    <input type="text" class="mb-1 pl-5"><br>
+                    <input type="text" class="mb-1 pl-5"><br>
+                    <input type="text" class="mb-1 pl-5"><br>
+                    <input type="text" class="mb-1 pl-5"><br>
+                    <input type="text" class="mb-1 pl-5"><br>
+
+                </form>
+                <!-- <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a> -->
             </div>
         </div>
 
-        <!-- This is a container-->
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <div class="card-body text-center">
-                        <!-- Search input goes here -->
 
-                        <div class="card" style="width: 18rem;">
-                            <div class="card-body bg-light">
-                                <h6 class="card-subtitle mb-2 text-muted">Search For A City</h6>
-                                <div class="input-group mb-3">
-                                    <input type="text" class="form-control searchInput" placeholder="Enter City Name"
-                                        aria-label="Recipient's username" aria-describedby="button-addon2">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-outline-secondary bg-primary searchButton" type="button"
-                                            id="button-addon2"><i class="fas fa-search"></i></button>
-                                    </div>
-                                </div>
-
-                                <ul class="list-group">
-
-                                </ul>
-                            </div>
-                        </div>
+    </div>
+    <div class="container offset-sm-3 position">
+        <div class="row mb-2">
+            <div class="col-sm-8">
+                <div class="card pb-5 pt-1">
+                    <div class="card-body">
+                        <h5 class="card-title">City will go here</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.
+                        </p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-8">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">5-Day Forecast</h5>
+                        <p class="card-text">Weather results will go here
+                        </p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</body>
+
+</html>

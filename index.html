@@ -114,14 +114,38 @@
 
                 var url = "http://api.openweathermap.org/data/2.5/weather?q=London&Appid=" + apiKey;
 
+                searchButton.click(function () {
 
+                    var searchInput = $(".searchInput").val();
+                    // Variable for current weather working 
+                    var urlCurrent = "http://api.openweathermap.org/data/2.5/weather?q=" + searchInput +
+                        "&Appid=" + apiKey;
+                    // Variable for 5 day forecast working
+                    var urlFiveDay = "http://api.openweathermap.org/data/2.5/forecast?q=" + searchInput +
+                        "&Appid=" + apiKey;
 
-                $.ajax({
-                    url: url,
-                    method: "GET"
-                }).then(function (response) {
-                    console.log(response);
+                    console.log(searchInput);
 
+                    // if (searchInput == null) {
+                    //     console.log(searchInput);
+                    // } else {
+                    $.ajax({
+                        url: urlCurrent,
+                        method: "GET"
+                    }).then(function (response) {
+                        console.log(response);
+
+                    });
+
+                    $.ajax({
+                        url: url,
+                        url: urlFiveDay,
+                        method: "GET"
+                    }).then(function (response) {
+                        console.log(response);
+
+                    });
+                    // }
                 });
 </script>
 </body>

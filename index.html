@@ -176,9 +176,41 @@
 
                             var local = localStorage.setItem(keyCount, response.name);
                             keyCount = keyCount + 1;
+                            // Start append 
 
+                            var currentCard = $(".currentCard").append("<div>").addClass("card-body");
+
+                            var currentName = currentCard.append("<h1>").addClass("card-title");
+                            // Appends card tite to first div
+                            currentCard.append(currentName);
+                            // Appends the city name and date on the H!
+                            currentName.append(response.name + " " + response.dt);
+
+                            // Add Temp 
+                            var currentTemp = currentName.append("<p>").addClass("card-text");
+                            currentName.append(currentTemp);
+                            currentTemp.append("Temperature: " + response.main.temp);
+                            // Add Humidity
+                            var currentHumidity = currentTemp.append("<p>").addClass("card-text");
+                            currentTemp.append(currentHumidity);
+                            currentHumidity.append("Humidity: " + response.main.humidity);
+                            // Add Wind Speed: 
+                            var currentWindSpeed = currentHumidity.append("<p>").addClass("card-text");
+                            currentHumidity.append(currentWindSpeed);
+                            currentWindSpeed.append("Wind Speed: " + response.wind.speed);
+                            // UV Index
+                            // Needs separate API call
+                            var currentUV = currentWindSpeed.append("<p>").addClass("card-text");
+                            currentWindSpeed.append(currentUV);
+                            currentUV.append("UV Index: ")
+
+                            // var cardCityName = $(".card").append("<h5>").addClass("card-title");
+                            // cardCityName.append(response.name);
+                            // <div class="card-body">
+                            //         <h5 class="card-title">City will go here</h5>
                         });
 
+                        // Start call for 5-day forecast 
                         $.ajax({
                             url: urlFiveDay,
                             method: "GET"
@@ -192,17 +224,39 @@
                             // $("info").append(response.main.temp);
                             // $(".city").text(response.main.temp);
                             // Will have 5 day with icons
+                            // var currentCard = $(".currentCard").append("<div>").addClass("card-body");
+
+                            // var currentName = currentCard.append("<h1>").addClass("card-title");
+                            // // Appends card tite to first div
+                            // currentCard.append(currentName);
+                            // // Appends the city name and date on the H!
+                            // currentName.append(response.city.name + " " + response.list[0].dt_txt);
+
+
+                            // var currentTemp = currentName.append("<p>").addClass("card-text");
+                            // currentName.append(currentTemp);
+                            // currentTemp.append(response.)
+                            // <div class="card currentCard">
+                            //     <div class="card-body">
+                            //         <!-- <h5 class="card-title">City will go here</h5> -->
+                            //         <!-- <p class="card-text">Weather results will go here
+                            //         </p> -->
+                            //         <!-- <a href="#" class="btn btn-primary">Go Somewhere</a> -->
+                            //     </div>
+
+
+
                             console.log(response.list[0].dt_txt);
                             // Use moment to reformat date
                             var dateFormat = response.list[0].dt_txt;
                             console.log(dateFormat);
-
                         });
                     }
                 });
-
                 // function weatherResults() {
-
                 // }
+                // API and variable is now working
+                // Set function to create text area + Class and append the city name 1st column
+                // Append local date to 2nd column
 </script>
 </body>

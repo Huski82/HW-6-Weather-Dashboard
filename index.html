@@ -124,28 +124,85 @@
                     var urlFiveDay = "http://api.openweathermap.org/data/2.5/forecast?q=" + searchInput +
                         "&Appid=" + apiKey;
 
+                    for (var i = 0; i < localStorage.length; i++) {
+
+                        var city = localStorage.getItem(i);
+                        // console.log(localStorage.getItem("City"));
+                        var cityName = $(".list-group").append("<li>").addClass("list-group-item");
+                        cityName.append(city);
+                    }
+
+                    var keyCount = 0;
+                    searchButton.click(function () {
+
+                        var searchInput = $(".searchInput").val();
+                        console.log(searchInput);
+                        // if (searchInput == null) {
+                        //     console.log(searchInput);
+                        // } else {
+                        $.ajax({
+                            url: urlCurrent,
+                            method: "GET"
+                        }).then(function (response) {
+                            console.log(response);
+
+                        });
+
+                        $.ajax({
+                            url: url,
+                            url: urlFiveDay,
+                            method: "GET"
+                        }).then(function (response) {
+                            console.log(response);
+
+                        });
+                        // }
+                    });
                     console.log(searchInput);
+                    // Getting 404  error???????
+                    // list-group append an li to it with just set text
+                    if (searchInput == "") {
+                        console.log(searchInput);
+                    } else {
+                        $.ajax({
+                            url: urlCurrent,
+                            method: "GET"
+                        }).then(function (response) {
+                            // console.log(response);
+                            // $(".current").text(response.name);
+                            // console.log(response.name);
+                            var cityName = $(".list-group").append("<li>").addClass("list-group-item");
+                            cityName.append(response.name);
 
-                    // if (searchInput == null) {
-                    //     console.log(searchInput);
-                    // } else {
-                    $.ajax({
-                        url: urlCurrent,
-                        method: "GET"
-                    }).then(function (response) {
-                        console.log(response);
+                            var local = localStorage.setItem(keyCount, response.name);
+                            keyCount = keyCount + 1;
 
-                    });
+                        });
 
-                    $.ajax({
-                        url: url,
-                        url: urlFiveDay,
-                        method: "GET"
-                    }).then(function (response) {
-                        console.log(response);
+                        $.ajax({
+                            url: urlFiveDay,
+                            method: "GET"
+                        }).then(function (response) {
+                            console.log(response);
+                            // Will have current info: Name, Date, Temp, Humidity, Wind Speed, UV index 
+                            $(".city").text(response.name);
+                            // $(".city").text(response.date?);
+                            // $(".city").text(response.main.temp);
+                            // console.log(response.main.temp);
+                            // $("info").append(response.main.temp);
+                            // $(".city").text(response.main.temp);
+                            // Will have 5 day with icons
+                            console.log(response.list[0].dt_txt);
+                            // Use moment to reformat date
+                            var dateFormat = response.list[0].dt_txt;
+                            console.log(dateFormat);
 
-                    });
-                    // }
+                        });
+                    }
                 });
+
+                // function weatherResults() {
+
+                // }
 </script>
 </body>

@@ -215,15 +215,39 @@
                             url: urlFiveDay,
                             method: "GET"
                         }).then(function (response) {
+                            // Day 1
+                            console.log(response);
+                            console.log(response.list[0].dt_txt);
+                            console.log(response.list[0].main.temp);
+                            console.log(response.list[0].main.humidity);
+
+                            // Day 2
+                            console.log(response);
+                            console.log(response.list[1].dt_txt);
+                            console.log(response.list[1].main.temp);
+                            console.log(response.list[1].main.humidity);
+
+                            // Day 3
+                            console.log(response);
+                            console.log(response.list[2].dt_txt);
+                            console.log(response.list[2].main.temp);
+                            console.log(response.list[2].main.humidity);
+
+                            // Day 4
                             console.log(response);
                             // Will have current info: Name, Date, Temp, Humidity, Wind Speed, UV index 
-                            $(".city").text(response.name);
-                            // $(".city").text(response.date?);
-                            // $(".city").text(response.main.temp);
-                            // console.log(response.main.temp);
-                            // $("info").append(response.main.temp);
-                            // $(".city").text(response.main.temp);
-                            // Will have 5 day with icons
+                            console.log(response.list[3].dt_txt);
+                            console.log(response.list[3].main.temp);
+                            console.log(response.list[3].main.humidity);
+
+                            // Day 5
+                            console.log(response);
+                            console.log(response.list[4].dt_txt);
+                            console.log(response.list[4].main.temp);
+                            console.log(response.list[4].main.humidity);
+
+                            // date, icon, temp, humidity 
+
                             // var currentCard = $(".currentCard").append("<div>").addClass("card-body");
 
                             // var currentName = currentCard.append("<h1>").addClass("card-title");
@@ -231,8 +255,6 @@
                             // currentCard.append(currentName);
                             // // Appends the city name and date on the H!
                             // currentName.append(response.city.name + " " + response.list[0].dt_txt);
-
-
                             // var currentTemp = currentName.append("<p>").addClass("card-text");
                             // currentName.append(currentTemp);
                             // currentTemp.append(response.)
@@ -243,9 +265,6 @@
                             //         </p> -->
                             //         <!-- <a href="#" class="btn btn-primary">Go Somewhere</a> -->
                             //     </div>
-
-
-
                             console.log(response.list[0].dt_txt);
                             // Use moment to reformat date
                             var dateFormat = response.list[0].dt_txt;
@@ -258,5 +277,9 @@
                 // API and variable is now working
                 // Set function to create text area + Class and append the city name 1st column
                 // Append local date to 2nd column
+                // Test API funciton for 5-day forecast 
+                // Append 5-day to 3rd column
 </script>
 </body>
+
+</html>

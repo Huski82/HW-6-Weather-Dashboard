@@ -1,12 +1,51 @@
 ul {
     list-style: none;
     text-align: left;
-
 }
-
+/* li {
+    border: 5px solid red;
+} */
 .card-title {
     font-size: 20px;
 }
+img {
+    width: 100px;
+    height: 100px;
+}
+
+/* .currentCard {
+    width: 700px;
+} */
+
+.fiveDayColor {
+    padding: 20px;
+    background-color: blue;
+    color: white;
+}
+
+/* .fiveDayTwoColor {
+    padding: 20px;
+    background-color: blue;
+    background-color: #1E90FF;
+    color: white;
+    /* height: 250px; */
+}
+.fiveDayThreeColor {
+    padding: 20px;
+    background-color: blue;
+    color: white;
+}
+.fiveDayFourColor {
+    padding: 20px;
+    background-color: blue;
+    color: white;
+}
+.fiveDayFiveColor {
+    padding: 20px;
+    background-color: blue;
+    color: white;
+} */
+
 
 /* p {
     font-size: 16px;

@@ -2,7 +2,6 @@ var searchButton = $(".searchButton");
 
 var apiKey = "f9fd8de87b73b68fef28b4dd554be86d";
 
-
 for (var i = 0; i < localStorage.length; i++) {
 
     var city = localStorage.getItem(i);
@@ -11,19 +10,19 @@ for (var i = 0; i < localStorage.length; i++) {
 
     cityName.append("<li>" + city + "</li>");
 }
-
+// Key count for local storage 
 var keyCount = 0;
-
+// Search button click event
 searchButton.click(function () {
 
     var searchInput = $(".searchInput").val();
 
     // Variable for current weather working 
-    var urlCurrent = "http://api.openweathermap.org/data/2.5/weather?q=" + searchInput + "&Appid=" + apiKey + "&units=imperial";
+    var urlCurrent = "https://api.openweathermap.org/data/2.5/weather?q=" + searchInput + "&Appid=" + apiKey + "&units=imperial";
     // Variable for 5 day forecast working
-    var urlFiveDay = "http://api.openweathermap.org/data/2.5/forecast?q=" + searchInput + "&Appid=" + apiKey + "&units=imperial";
+    var urlFiveDay = "https://api.openweathermap.org/data/2.5/forecast?q=" + searchInput + "&Appid=" + apiKey + "&units=imperial";
 
-    // list-group append an li to it with just set text
+
     if (searchInput == "") {
         console.log(searchInput);
     } else {
@@ -31,7 +30,7 @@ searchButton.click(function () {
             url: urlCurrent,
             method: "GET"
         }).then(function (response) {
-
+            // list-group append an li to it with just set text
             // console.log(response.name);
             var cityName = $(".list-group").addClass("list-group-item");
             cityName.append("<li>" + response.name + "</li>");
@@ -49,7 +48,7 @@ searchButton.click(function () {
             // Adjust Date 
             var timeUTC = new Date(response.dt * 1000);
             currentName.append(response.name + " " + timeUTC.toLocaleDateString("en-US"));
-            currentName.append(`<img src="http://openweathermap.org/img/wn/${response.weather[0].icon}@2x.png">`);
+            currentName.append(`<img src="https://openweathermap.org/img/wn/${response.weather[0].icon}@2x.png">`);
             // Add Temp 
             var currentTemp = currentName.append("<p>");
             // .addClass("card-text");
@@ -61,10 +60,9 @@ searchButton.click(function () {
             currentTemp.append("<p>" + "Wind Speed: " + response.wind.speed + "</p>");
 
             // UV Index URL
-            var urlUV = `http://api.openweathermap.org/data/2.5/uvi?appid=b8ecb570e32c2e5042581abd004b71bb&lat=${response.coord.lat}&lon=${response.coord.lon}`;
+            var urlUV = `https://api.openweathermap.org/data/2.5/uvi?appid=b8ecb570e32c2e5042581abd004b71bb&lat=${response.coord.lat}&lon=${response.coord.lon}`;
 
-            // // UV Index
-
+            // UV Index
             $.ajax({
                 url: urlUV,
                 method: "GET"
@@ -83,17 +81,17 @@ searchButton.click(function () {
             url: urlFiveDay,
             method: "GET"
         }).then(function (response) {
-
+            // Array for 5-days 
             var day = [0, 8, 16, 24, 32];
             var fiveDayCard = $(".fiveDayCard").addClass("card-body");
             var fiveDayDiv = $(".fiveDayOne").addClass("card-text");
             fiveDayDiv.empty();
-
+            // For each for 5 days
             day.forEach(function (i) {
                 var FiveDayTimeUTC1 = new Date(response.list[i].dt * 1000);
                 FiveDayTimeUTC1 = FiveDayTimeUTC1.toLocaleDateString("en-US");
 
-                fiveDayDiv.append("<div class=fiveDayColor>" + "<p>" + FiveDayTimeUTC1 + "</p>" + `<img src="http://openweathermap.org/img/wn/${response.list[i].weather[0].icon}@2x.png">` + "<p>" + "Temperature: " + response.list[i].main.temp + "</p>" + "<p>" + "Humidity: " + response.list[i].main.humidity + "%" + "</p>" + "</div>");
+                fiveDayDiv.append("<div class=fiveDayColor>" + "<p>" + FiveDayTimeUTC1 + "</p>" + `<img src="https://openweathermap.org/img/wn/${response.list[i].weather[0].icon}@2x.png">` + "<p>" + "Temperature: " + response.list[i].main.temp + "</p>" + "<p>" + "Humidity: " + response.list[i].main.humidity + "%" + "</p>" + "</div>");
 
 
             })
